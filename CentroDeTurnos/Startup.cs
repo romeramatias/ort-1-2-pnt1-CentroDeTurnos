@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using CentroDeTurnos.Context;
+using Consultorio.Context;
 using Newtonsoft.Json;
 
 namespace CentroDeTurnos
@@ -33,7 +33,7 @@ namespace CentroDeTurnos
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddDbContext<TurnosDatabaseContext>(
+            services.AddDbContext<ConsultorioContext>(
             options =>
             options.UseSqlServer(Configuration["ConnectionString:TurnosDBConnection"
             ]));

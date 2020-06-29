@@ -10,22 +10,37 @@ using Consultorio.Context;
 
 namespace CentroDeTurnos.Controllers
 {
-    public class TurnosController : Controller
+    public class PacientesController : Controller
     {
         private readonly ConsultorioContext _context;
 
-        public TurnosController(ConsultorioContext context)
+        public PacientesController(ConsultorioContext context)
         {
             _context = context;
         }
 
-        // GET: Turnoes
+        // GET: Pacientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.turnos.ToListAsync());
+            return View(await _context.pacientes.ToListAsync());
         }
 
-        // GET: Turnoes/Details/5
+        [HttpGet]
+        public async Task<IActionResult> Index(string stringBusqueda)
+        {
+            ViewData["Obtenerpacientes"] = stringBusqueda;
+
+            var varPacientes = from p in _context.pacientes select p;
+        
+            if(!String.IsNullOrEmpty(stringBusqueda))
+            {
+                varPacientes = varPacientes.Where(s => s.Apellido.Contains(stringBusqueda));
+            }
+            return View(await varPacientes.AsNoTracking().ToListAsync());
+
+        }
+
+        // GET: Pacientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,41 +48,39 @@ namespace CentroDeTurnos.Controllers
                 return NotFound();
             }
 
-            var turno = await _context.turnos
+            var paciente = await _context.pacientes
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (turno == null)
+            if (paciente == null)
             {
                 return NotFound();
             }
 
-            return View(turno);
+            return View(paciente);
         }
 
-        // GET: Turnoes/Create
+        // GET: Pacientes/Create
         public IActionResult Create()
         {
-            ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido");
             return View();
         }
 
-        // POST: Turnoes/Create
+        // POST: Pacientes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,TipoTurno,FechaTurno")] Turno turno)
+        public async Task<IActionResult> Create([Bind("ID,Nombre,Apellido,Direccion,Dni,Telefono,Mail")] Paciente paciente)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(turno);
+                _context.Add(paciente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido", turno.PacienteId);
-            return View(turno);
+            return View(paciente);
         }
 
-        // GET: Turnoes/Edit/5
+        // GET: Pacientes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,22 +88,22 @@ namespace CentroDeTurnos.Controllers
                 return NotFound();
             }
 
-            var turno = await _context.turnos.FindAsync(id);
-            if (turno == null)
+            var paciente = await _context.pacientes.FindAsync(id);
+            if (paciente == null)
             {
                 return NotFound();
             }
-            return View(turno);
+            return View(paciente);
         }
 
-        // POST: Turnoes/Edit/5
+        // POST: Pacientes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TipoTurno,FechaTurno")] Turno turno)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Nombre,Apellido,Direccion,Dni,Telefono,Mail")] Paciente paciente)
         {
-            if (id != turno.ID)
+            if (id != paciente.ID)
             {
                 return NotFound();
             }
@@ -99,12 +112,12 @@ namespace CentroDeTurnos.Controllers
             {
                 try
                 {
-                    _context.Update(turno);
+                    _context.Update(paciente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TurnoExists(turno.ID))
+                    if (!PacienteExists(paciente.ID))
                     {
                         return NotFound();
                     }
@@ -115,10 +128,10 @@ namespace CentroDeTurnos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(turno);
+            return View(paciente);
         }
 
-        // GET: Turnoes/Delete/5
+        // GET: Pacientes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,30 +139,30 @@ namespace CentroDeTurnos.Controllers
                 return NotFound();
             }
 
-            var turno = await _context.turnos
+            var paciente = await _context.pacientes
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (turno == null)
+            if (paciente == null)
             {
                 return NotFound();
             }
 
-            return View(turno);
+            return View(paciente);
         }
 
-        // POST: Turnoes/Delete/5
+        // POST: Pacientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var turno = await _context.turnos.FindAsync(id);
-            _context.turnos.Remove(turno);
+            var paciente = await _context.pacientes.FindAsync(id);
+            _context.pacientes.Remove(paciente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TurnoExists(int id)
+        private bool PacienteExists(int id)
         {
-            return _context.turnos.Any(e => e.ID == id);
+            return _context.pacientes.Any(e => e.ID == id);
         }
     }
 }
