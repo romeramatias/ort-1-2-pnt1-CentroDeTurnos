@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using CentroDeTurnos.Models;
 using Consultorio.Context;
 
+// SI TENGO DOS PACIENTES CON EL MISMO APELLIDO? TENGO QUE MOSTRAR NOMBRE Y APELLIDO
+// MOSTRAR FECHA Y HORA EN TURNO
+
 namespace CentroDeTurnos.Controllers
 {
     public class PacientesController : Controller
@@ -24,6 +27,7 @@ namespace CentroDeTurnos.Controllers
         {
             return View(await _context.pacientes.ToListAsync());
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Index(string stringBusqueda)

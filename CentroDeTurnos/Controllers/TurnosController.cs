@@ -22,7 +22,24 @@ namespace CentroDeTurnos.Controllers
         // GET: Turnoes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.turnos.ToListAsync());
+            // HACER como devolver tambien el apellido del paciente? solo tengo su ID
+            var consultorioContext = _context.turnos.Include(c => c.paciente);
+            return View(await consultorioContext.ToListAsync());
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index(string stringBusqueda)
+        {
+            ViewData["Obtenerpacientes"] = stringBusqueda;
+
+            var varPacientes = from p in _context.turnos.Include(c => c.paciente )select p;
+
+            if (!String.IsNullOrEmpty(stringBusqueda))
+            {
+                varPacientes = varPacientes.Where(s => s.paciente.Apellido.Contains(stringBusqueda));
+            }
+            return View(await varPacientes.AsNoTracking().ToListAsync());
+
         }
 
         // GET: Turnoes/Details/5
@@ -34,7 +51,9 @@ namespace CentroDeTurnos.Controllers
             }
 
             var turno = await _context.turnos
+                .Include(c => c.paciente)
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (turno == null)
             {
                 return NotFound();
@@ -55,7 +74,7 @@ namespace CentroDeTurnos.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,TipoTurno,FechaTurno")] Turno turno)
+        public async Task<IActionResult> Create([Bind("ID,TipoTurno,FechaTurno,PacienteID")] Turno turno)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +82,7 @@ namespace CentroDeTurnos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido", turno.PacienteId);
+            ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido", turno.PacienteID);
             return View(turno);
         }
 
@@ -80,6 +99,7 @@ namespace CentroDeTurnos.Controllers
             {
                 return NotFound();
             }
+            ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido", turno.PacienteID);
             return View(turno);
         }
 
@@ -115,6 +135,7 @@ namespace CentroDeTurnos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido", turno.PacienteID);
             return View(turno);
         }
 
@@ -127,7 +148,9 @@ namespace CentroDeTurnos.Controllers
             }
 
             var turno = await _context.turnos
+                .Include(c => c.paciente)
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (turno == null)
             {
                 return NotFound();

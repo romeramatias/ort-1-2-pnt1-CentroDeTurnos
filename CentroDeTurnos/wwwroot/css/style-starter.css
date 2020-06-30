@@ -45,23 +45,36 @@ Author URL: http://w3layouts.com
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+    min-height: 100%;
+}
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+article, aside, figcaption, figure, header, hgroup, main, nav, section {
   display: block; }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff; }
+        margin: 0;
+        margin-bottom: 60px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fff;
+}
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
@@ -475,7 +488,7 @@ pre {
   overflow-y: scroll; }
 
 .container {
-  width: 100%;
+  width: 200%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -9791,7 +9804,8 @@ a.navbar-brand span.fa {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    min-height: 1000px;
+    /*DESCOMENTAR min-height: 1000px;*/
+    min-height: 900px;
     z-index: 0;
     display: grid;
     align-items: center;
@@ -9801,6 +9815,8 @@ a.navbar-brand span.fa {
 
 .w3l-main-banner {
     position: relative;
+    /*DESCOMENTAR*/
+    margin-bottom: -80px;
     background-color: black;
 }
 
@@ -9839,7 +9855,9 @@ a.navbar-brand span.fa {
   .w3l-main-banner h3.gallery4-head {
     margin-bottom: 20px; }
   .w3l-main-banner .banner-view {
-    min-height: 550px; } }
+    /*DESCOMENTAR min-height: 550px;*/ 
+    min-height: 900px;
+  } }
 
 @media (max-width: 569px) {
   .w3l-main-banner h3.gallery4-head {
@@ -10282,8 +10300,12 @@ section.w3l-grid-quote h3 {
 
 /*-- mid --*/
 .w3l-footers-1 {
-  /*-- responsive design --*/
-  /*-- //responsive design --*/ }
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
   .w3l-footers-1 .d-grid {
     display: grid; }
   .w3l-footers-1 .grid-columns-2 {
@@ -10291,9 +10313,10 @@ section.w3l-grid-quote h3 {
     grid-column-gap: 20px; }
   .w3l-footers-1 .align-right {
     text-align: right; }
-  .w3l-footers-1 .footer {
-    position: relative;
-    background-color: var(--secondary); }
+    .w3l-footers-1 .footer {
+        position: absolute;
+        background-color: var(--secondary);
+    }
   .w3l-footers-1 .footer-left p {
     font-size: 16px;
     line-height: 26px;
@@ -10316,7 +10339,7 @@ section.w3l-grid-quote h3 {
       margin: 0 7px; } }
   @media (max-width: 480px) {
     .w3l-footers-1 .footer-right {
-      margin-top: 5px; } }
+      margin-top: -200px; } }
   @media (max-width: 415px) {
     .w3l-footers-1 .footer-left,
     .w3l-footers-1 .footer-right {
@@ -11184,5 +11207,168 @@ span.sicon {
 @media (max-width: 768px) {
   .w3l-contacts-12 textarea {
     height: 150px; } }
+
+.s130 {
+    min-height: 100vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px;
+}
+
+    .s130 form {
+        width: 100%;
+        max-width: 790px;
+        padding-top: 24vh;
+    }
+
+        .s130 form .inner-form {
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -ms-flex-align: center;
+            align-items: center;
+            box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+            border-radius: 34px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+            .s130 form .inner-form .input-field {
+                height: 68px;
+            }
+
+                .s130 form .inner-form .input-field input {
+                    height: 100%;
+                    background: transparent;
+                    border: 0;
+                    display: block;
+                    width: 100%;
+                    padding: 10px 0;
+                    font-size: 16px;
+                    color: #000;
+                }
+
+                    .s130 form .inner-form .input-field input.placeholder {
+                        color: #222;
+                        font-size: 16px;
+                    }
+
+                    .s130 form .inner-form .input-field input:-moz-placeholder {
+                        color: #222;
+                        font-size: 16px;
+                    }
+
+                    .s130 form .inner-form .input-field input::-webkit-input-placeholder {
+                        color: #222;
+                        font-size: 16px;
+                    }
+
+                    .s130 form .inner-form .input-field input:hover, .s130 form .inner-form .input-field input:focus {
+                        box-shadow: none;
+                        outline: 0;
+                    }
+
+                .s130 form .inner-form .input-field.first-wrap {
+                    -ms-flex-positive: 1;
+                    flex-grow: 1;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    background: #d9f1e3;
+                }
+
+                    .s130 form .inner-form .input-field.first-wrap input {
+                        -ms-flex-positive: 1;
+                        flex-grow: 1;
+                    }
+
+                    .s130 form .inner-form .input-field.first-wrap .svg-wrapper {
+                        min-width: 80px;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        -ms-flex-align: center;
+                        align-items: center;
+                    }
+
+                    .s130 form .inner-form .input-field.first-wrap svg {
+                        width: 36px;
+                        height: 36px;
+                        fill: #222;
+                    }
+
+                .s130 form .inner-form .input-field.second-wrap {
+                    min-width: 216px;
+                }
+
+                    .s130 form .inner-form .input-field.second-wrap .btn-search {
+                        height: 100%;
+                        width: 100%;
+                        white-space: nowrap;
+                        font-size: 16px;
+                        color: #fff;
+                        border: 0;
+                        cursor: pointer;
+                        position: relative;
+                        z-index: 0;
+                        background: #00ad5f;
+                        transition: all .2s ease-out, color .2s ease-out;
+                        font-weight: 300;
+                    }
+
+                        .s130 form .inner-form .input-field.second-wrap .btn-search:hover {
+                            background: #009451;
+                        }
+
+                        .s130 form .inner-form .input-field.second-wrap .btn-search:focus {
+                            outline: 0;
+                            box-shadow: none;
+                        }
+
+        .s130 form .info {
+            font-size: 15px;
+            color: #ccc;
+            padding-left: 26px;
+        }
+
+@media screen and (max-width: 992px) {
+    .s130 form .inner-form .input-field {
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .s130 form .inner-form .input-field.first-wrap .svg-wrapper {
+        min-width: 40px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .s130 form .inner-form .input-field.first-wrap svg {
+        width: 26px;
+        height: 26px;
+        fill: #222;
+    }
+
+    .s130 form .inner-form .input-field.second-wrap {
+        min-width: 100px;
+    }
+
+        .s130 form .inner-form .input-field.second-wrap .btn-search {
+            font-size: 13px;
+        }
+}
 
 /*# sourceMappingURL=style-starter.css.map */

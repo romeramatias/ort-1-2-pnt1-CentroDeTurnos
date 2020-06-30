@@ -13,7 +13,7 @@ namespace CentroDeTurnos.Models
         public int ID { get; set; }
 
         [Display(Name = "Paciente")]
-        public int PacienteId { get; set; }
+        public int PacienteID { get; set; }
    
         [EnumDataType(typeof(TipoTurno))]
         [Display(Name = "Tipo de consulta")]
@@ -29,7 +29,3 @@ namespace CentroDeTurnos.Models
         public Paciente paciente { get; set; }
     }
 }
-
-
-// SqlException: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_turnos_pacientes_PacienteId". 
-// The conflict occurred in database "ConsultorioDB2", table "dbo.pacientes", column 'ID'.
