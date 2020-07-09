@@ -7,9 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CentroDeTurnos.Models;
 using Consultorio.Context;
-
-// SI TENGO DOS PACIENTES CON EL MISMO APELLIDO? TENGO QUE MOSTRAR NOMBRE Y APELLIDO
-// MOSTRAR FECHA Y HORA EN TURNO
+using System.Collections;
 
 namespace CentroDeTurnos.Controllers
 {
@@ -43,6 +41,8 @@ namespace CentroDeTurnos.Controllers
             return View(await varPacientes.AsNoTracking().ToListAsync());
 
         }
+
+      
 
         // GET: Pacientes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -146,6 +146,162 @@ namespace CentroDeTurnos.Controllers
             var paciente = await _context.pacientes
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (paciente == null)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             {
                 return NotFound();
             }

@@ -21,7 +21,7 @@
                     @Html.DisplayNameFor(model => model.FechaTurno)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.FechaTurno)
+                    @Html.DisplayFor(modelItem => modelItem.FechaTurno) @Html.DisplayFor(modelItem => modelItem.FechaTurno.TimeOfDay)
                 </dd>
                 <dt>
                     @Html.DisplayNameFor(model => model.paciente)
@@ -32,8 +32,8 @@
             </dl>
         </div>
         <div>
-            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model.ID">Editar</a> |
+            <a asp-action="Index">Volver a la lista de turnos</a>
         </div>
     </main>
 </div>

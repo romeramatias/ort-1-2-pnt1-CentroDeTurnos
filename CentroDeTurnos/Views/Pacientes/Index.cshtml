@@ -5,23 +5,30 @@
 }
 <div class="container">
     <main role="main" class="pb-3">
-       <h2>Lista de Pacientes</h2>
-
-        <p>
-            <a asp-action="Create">Agregar nuevo Paciente</a>
-        </p>
-
-        <form method="get" asp-action="Index">
-            <p style="flex-direction:row">
-                Buscar paciente: <input type="search" class="form-control mr-sm-2" style="width:250px;margin-bottom:15px" placeholder="Ingrese Apellido" value="@ViewData["Obtenerpacientes"]" name="stringBusqueda">
-                <input class="btn btn-primary" type="submit" value="Buscar" />
-                <a asp-action="Index">Ver todos los Pacientes</a>
-            </p>
-        </form>
+        <h2 style="font-weight: 700; font-size: 40px; line-height: 80px; color: black;">Lista de Pacientes</h2>
+        <div id="container" style=" width: 100%; text-align: left;">
+            <div id="left" style=" float: left; width: 300px; padding-bottom: 10px">
+                <form method="get" asp-action="Index">
+                    <p style="flex-direction:row">
+                        Buscar paciente: <input type="search" class="form-control mr-sm-2" style="width:250px;margin-bottom:15px" placeholder="Ingrese Apellido" value="@ViewData["Obtenerpacientes"]" name="stringBusqueda">
+                        <input class="btn btn-primary" type="submit" value="Buscar" />
+                        <a asp-action="Index">Ver todos los Pacientes</a>
+                    </p>
+                </form>
+            </div>
+            <div id="right" style=" float: right; width: 200px;">
+                <p>
+                    <a asp-action="Create" class="btn btn-primary">Agregar un nuevo Paciente</a>
+                </p>
+            </div>
+        </div>
 
         <table class="table">
             <thead>
-                <tr>
+                <tr style="color: #fff;
+                        line-height: 1.4;
+                        background-color: #333333;
+                        font-family: 'Nunito', sans-serif;">
                     <th>
                         @Html.DisplayNameFor(model => model.Nombre)
                     </th>
@@ -40,13 +47,16 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Mail)
                     </th>
-                    <th></th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr style="        color: black;
+                                line-height: 1.4;
+                                background-color: #e6e6e6;
+                                font-family: 'Nunito', sans-serif;">
                         <td>
                             @Html.DisplayFor(modelItem => item.Nombre)
                         </td>
