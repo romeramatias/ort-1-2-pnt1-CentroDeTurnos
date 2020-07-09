@@ -5,12 +5,12 @@
 }
 <div class="container">
     <main role="main" class="pb-3">
-        <h2>Detalles</h2>
+        <h2 class="letra-nunito-header">Detalles</h2>
 
         <div>
             <h4>Turno</h4>
             <hr />
-            <dl class="dl-horizontal">
+            <dl class="letra-nunito-texto">
                 <dt>
                     @Html.DisplayNameFor(model => model.TipoTurno)
                 </dt>
@@ -21,7 +21,7 @@
                     @Html.DisplayNameFor(model => model.FechaTurno)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.FechaTurno)
+                    @Html.DisplayFor(modelItem => modelItem.FechaTurno) @Html.DisplayFor(modelItem => modelItem.FechaTurno.TimeOfDay)
                 </dd>
                 <dt>
                     @Html.DisplayNameFor(model => model.paciente)
@@ -32,8 +32,8 @@
             </dl>
         </div>
         <div>
-            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Editar</a>
+            <a asp-action="Index">Volver a la lista de turnos</a>
         </div>
     </main>
 </div>

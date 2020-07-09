@@ -5,11 +5,11 @@
 }
 <div class="container">
     <main role="main" class="pb-3">
-        <h2>Ingresar paciente</h2>
+        <h2 class="letra-nunito-header">Ingresar paciente</h2>
 
         <h4>Paciente</h4>
         <hr />
-        <div class="row">
+        <div class="letra-nunito-texto">
             <div class="col-md-4">
                 <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -44,7 +44,7 @@
                         <span asp-validation-for="Mail" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Ingresar" class="btn btn-default" />
+                        <input type="submit" value="Ingresar" class="btn btn-primary" />
                     </div>
                 </form>
             </div>

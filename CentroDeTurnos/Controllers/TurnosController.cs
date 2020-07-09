@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CentroDeTurnos.Models;
 using Consultorio.Context;
+using System.Collections;
 
 namespace CentroDeTurnos.Controllers
 {
@@ -22,7 +23,6 @@ namespace CentroDeTurnos.Controllers
         // GET: Turnoes
         public async Task<IActionResult> Index()
         {
-            // HACER como devolver tambien el apellido del paciente? solo tengo su ID
             var consultorioContext = _context.turnos.Include(c => c.paciente);
             return View(await consultorioContext.ToListAsync());
         }
@@ -39,6 +39,23 @@ namespace CentroDeTurnos.Controllers
                 varPacientes = varPacientes.Where(s => s.paciente.Apellido.Contains(stringBusqueda));
             }
             return View(await varPacientes.AsNoTracking().ToListAsync());
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index2(int intBusqueda)
+        {
+            ViewData["Obtenertipos"] = intBusqueda;
+
+
+
+            var varTipo = from p in _context.turnos.Include(c => c.paciente) select p;
+
+            if (intBusqueda != 0)
+            {
+               varTipo = _context.turnos.Where(s => s.TipoTurno.Equals(intBusqueda));
+            }
+            return View(await varTipo.AsNoTracking().ToListAsync());
 
         }
 
