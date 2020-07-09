@@ -9808,13 +9808,26 @@ a.navbar-brand span.fa {
         background-size: cover;
         background-position: center center;
         /*DESCOMENTAR min-height: 1000px;*/
-        min-height: 1500px;
+        min-height: 700px;
         z-index: 0;
         display: grid;
         align-items: center;
         position: relative;
         margin: auto;
     }
+
+.letra-nunito-texto {
+   color: black; 
+   line-height: 1.4;
+   font-family: 'Nunito', sans-serif;
+}
+
+.letra-nunito-header {
+    color: black;
+    line-height: 1.4;
+    font-family: 'Nunito', sans-serif;
+    -webkit-text-stroke: thin;
+}
 
 @media (max-width: 992px) {
   .w3l-main-banner h3.gallery4-head {

@@ -5,11 +5,11 @@
 }
 <div class="container">
     <main role="main" class="pb-3">
-        <h2>Editar</h2>
+        <h2 class="letra-nunito-header">Editar</h2>
 
         <h4>Turno</h4>
         <hr />
-        <div class="row">
+        <div class="letra-nunito-texto">
             <div class="col-md-4">
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -30,14 +30,14 @@
                         <span asp-validation-for="FechaTurno" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-default" />
+                        <input type="submit" value="Guardar cambios" class="btn btn-primary" />
                     </div>
                 </form>
             </div>
         </div>
 
         <div>
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Index">Volver a la lista de turnos</a>
         </div>
 
         @section Scripts {
