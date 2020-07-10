@@ -21,64 +21,67 @@
                 </form>
             </div>
 
-            <div id="right" style=" float: right; width: 200px;">
+            <div id="right" style=" float: right; width: 200px; margin-top: 30px;">
                 <p>
                     <a asp-action="Create" class="btn btn-primary">Agendar un nuevo Turno a Paciente</a>
                 </p>
             </div>
 
+            <div id="right" style=" float: right; width: 200px; margin-top: 30px;">
+                <a asp-area="" asp-controller="Turnos" asp-action="IndexUrgencia" class="btn btn-primary-urgencia" style="background-color: crimson; color: white; padding-bottom: 18px; padding-top: 18px; text-align: justify;">Ver turnos de Urgencia</a>
+            </div>
+
         </div>
 
-        <table class="table">
-            <thead>
-                <tr style="         color: #fff;
+            <table class="table">
+                <thead>
+                    <tr style="         color: #fff;
                                     line-height: 1.4;
                                     background-color: #333333;
                                     font-family: 'Nunito', sans-serif;">
-                    <th>
-                        @Html.DisplayNameFor(model => model.FechaTurno)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TipoTurno)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.paciente.Apellido)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.paciente.Nombre)
-                    </th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var item in Model)
-                {
-                    <tr style="color: black;
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaTurno)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TipoTurno)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.paciente.Apellido)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.paciente.Nombre)
+                        </th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr style="color: black;
                        line-height: 1.4;
                        background-color: #e6e6e6;
                        font-family: 'Nunito', sans-serif;">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FechaTurno) @Html.DisplayFor(modelItem => item.FechaTurno.TimeOfDay)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TipoTurno)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.paciente.Apellido)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.paciente.Nombre)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
-                            <a asp-action="Details" asp-route-id="@item.ID">Detalles</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaTurno) @Html.DisplayFor(modelItem => item.FechaTurno.TimeOfDay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TipoTurno)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.paciente.Apellido)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.paciente.Nombre)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.ID">Detalles</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
-    </main>
+</main>
 </div>

@@ -42,20 +42,25 @@ namespace CentroDeTurnos.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index2(int intBusqueda)
+        public async Task<IActionResult> IndexUrgencia()
         {
-            ViewData["Obtenertipos"] = intBusqueda;
+            var consultorioContext = _context.turnos.Include(c => c.paciente);
+            return View(await consultorioContext.ToListAsync());
 
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> IndexUrgencia(string stringBusqueda)
+        {
+            ViewData["Obtenerpacientes"] = stringBusqueda;
 
-            var varTipo = from p in _context.turnos.Include(c => c.paciente) select p;
+            var varPacientes = from p in _context.turnos.Include(c => c.paciente) select p;
 
-            if (intBusqueda != 0)
+            if (!String.IsNullOrEmpty(stringBusqueda))
             {
-               varTipo = _context.turnos.Where(s => s.TipoTurno.Equals(intBusqueda));
+                varPacientes = varPacientes.Where(s => s.paciente.Apellido.Contains(stringBusqueda));
             }
-            return View(await varTipo.AsNoTracking().ToListAsync());
+            return View(await varPacientes.AsNoTracking().ToListAsync());
 
         }
 
