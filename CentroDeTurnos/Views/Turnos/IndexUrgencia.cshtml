@@ -11,12 +11,12 @@
 
         <div id="container" style=" width: 100%; text-align: left;">
 
-            <div id="left" style=" float: left; width: 300px; padding-bottom: 10px">
+            <div id="left" style=" float: left; width: 350px; padding-bottom: 10px">
                 <form method="get" asp-action="IndexUrgencia">
                     <p style="flex-direction:row">
                         Buscar turno: <input type="search" class="form-control mr-sm-2" style="width:250px;margin-bottom:15px" placeholder="Ingrese Apellido" value="@ViewData["Obtenerpacientes"]" name="stringBusqueda">
                         <input class="btn btn-primary" type="submit" value="Buscar" />
-                        <a asp-action="Index">Ver todos los Turnos</a>
+                        <a asp-action="IndexUrgencia">Ver todos los Turnos de Urgencia</a>
                     </p>
                 </form>
             </div>
