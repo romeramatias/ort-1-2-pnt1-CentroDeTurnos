@@ -9,6 +9,15 @@ Author URL: http://w3layouts.com
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+.apellidos {
+    padding-top: 15px;
+}
+    .apellidos ul {
+        display: flex;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -3159,6 +3168,7 @@ input[type="button"].btn-block {
     position: static;
     float: none; }
 
+}
 .navbar-text {
   display: inline-block;
   padding-top: 0.5rem;
