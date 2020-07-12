@@ -9835,10 +9835,10 @@ a.navbar-brand span.fa {
   max-width: 750px; }
 
     .w3l-main-banner .banner-view {
-        background: url('../images/imagenluis.jpg');
+        background: url('../images/drluis.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center center;
+        background-position: bottom;
         /*DESCOMENTAR min-height: 1000px;*/
         min-height: 700px;
         z-index: 0;
