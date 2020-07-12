@@ -7,53 +7,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CentroDeTurnos.Models;
 using Consultorio.Context;
-using System.Collections;
 using Microsoft.AspNetCore.Http;
-
 
 namespace CentroDeTurnos.Controllers
 {
-    public class PacientesController : Controller
+    public class AdminsController : Controller
     {
         private readonly ConsultorioContext _context;
+        private Admin adminContext;
 
-        public PacientesController(ConsultorioContext context)
+
+        public AdminsController(ConsultorioContext context)
         {
             _context = context;
         }
 
-        // GET: Pacientes
+        // GET: Admins
         public async Task<IActionResult> Index()
         {
-            return View(await _context.pacientes.ToListAsync());
+            return View(await _context.admins.ToListAsync());
         }
 
-
-        [HttpGet]
-        public async Task<IActionResult> Index(string stringBusqueda)
-        {
-            var adminLog = HttpContext.Session.GetString("admin");
-
-            if (adminLog == null || adminLog == "")
-            {
-                return RedirectToAction("Login", "Admins");
-            }
-
-            ViewData["Obtenerpacientes"] = stringBusqueda;
-
-            var varPacientes = from p in _context.pacientes select p;
-        
-            if(!String.IsNullOrEmpty(stringBusqueda))
-            {
-                varPacientes = varPacientes.Where(s => s.Apellido.Contains(stringBusqueda));
-            }
-            return View(await varPacientes.AsNoTracking().ToListAsync());
-
-        }
-
-      
-
-        // GET: Pacientes/Details/5
+        // GET: Admins/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -61,39 +36,40 @@ namespace CentroDeTurnos.Controllers
                 return NotFound();
             }
 
-            var paciente = await _context.pacientes
+            var admin = await _context.admins
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (paciente == null)
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(paciente);
+            return View(admin);
         }
 
-        // GET: Pacientes/Create
+        // GET: Admins/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pacientes/Create
+        // POST: Admins/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Nombre,Apellido,Direccion,Dni,Telefono,Mail")] Paciente paciente)
+        public async Task<IActionResult> Create([Bind("ID,Mail,Pass")] Admin admin)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(paciente);
+                _context.Add(admin);
                 await _context.SaveChangesAsync();
+                adminContext = admin;
                 return RedirectToAction(nameof(Index));
             }
-            return View(paciente);
+            return View(admin);
         }
 
-        // GET: Pacientes/Edit/5
+        // GET: Admins/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -101,22 +77,22 @@ namespace CentroDeTurnos.Controllers
                 return NotFound();
             }
 
-            var paciente = await _context.pacientes.FindAsync(id);
-            if (paciente == null)
+            var admin = await _context.admins.FindAsync(id);
+            if (admin == null)
             {
                 return NotFound();
             }
-            return View(paciente);
+            return View(admin);
         }
 
-        // POST: Pacientes/Edit/5
+        // POST: Admins/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Nombre,Apellido,Direccion,Dni,Telefono,Mail")] Paciente paciente)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Mail,Pass")] Admin admin)
         {
-            if (id != paciente.ID)
+            if (id != admin.ID)
             {
                 return NotFound();
             }
@@ -125,12 +101,12 @@ namespace CentroDeTurnos.Controllers
             {
                 try
                 {
-                    _context.Update(paciente);
+                    _context.Update(admin);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PacienteExists(paciente.ID))
+                    if (!AdminExists(admin.ID))
                     {
                         return NotFound();
                     }
@@ -141,10 +117,10 @@ namespace CentroDeTurnos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(paciente);
+            return View(admin);
         }
 
-        // GET: Pacientes/Delete/5
+        // GET: Admins/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -152,33 +128,63 @@ namespace CentroDeTurnos.Controllers
                 return NotFound();
             }
 
-            var paciente = await _context.pacientes
+            var admin = await _context.admins
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (paciente == null)
-
-
-
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(paciente);
+            return View(admin);
         }
 
-        // POST: Pacientes/Delete/5
+        // POST: Admins/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var paciente = await _context.pacientes.FindAsync(id);
-            _context.pacientes.Remove(paciente);
+            var admin = await _context.admins.FindAsync(id);
+            _context.admins.Remove(admin);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PacienteExists(int id)
+        private bool AdminExists(int id)
         {
-            return _context.pacientes.Any(e => e.ID == id);
+            return _context.admins.Any(e => e.ID == id);
+        }
+
+        //ADMIN, LOGINS
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(String Mail, String Pass)
+        {
+            if (ModelState.IsValid)
+            {
+                var adminsFromDB = await _context.admins.FirstOrDefaultAsync(adm => adm.Mail == Mail && adm.Pass == Pass);
+                if (adminsFromDB == null)
+                {
+                    ViewBag.Error = "Datos incorrectos.";
+                    return View();
+                }
+                adminContext = adminsFromDB;
+                HttpContext.Session.SetString("admin", adminsFromDB.Mail);
+                return RedirectToAction("Index", "Turnos");
+            }
+            return View(null);
+        }
+
+        public RedirectToActionResult Logout()
+        {
+            HttpContext.Session.SetString("admin", string.Empty);
+            Console.WriteLine(HttpContext.Session.GetString("admin"));
+            return RedirectToAction("Index", "Home");
+
         }
     }
 }

@@ -38,6 +38,9 @@ namespace CentroDeTurnos
             options.UseSqlServer(Configuration["ConnectionString:TurnosDBConnection"
             ]));
 
+            services.AddMvc();
+            services.AddSession();
+       
             services.AddMvc()
              .AddJsonOptions(options =>
              options.SerializerSettings.ReferenceLoopHandling =
@@ -65,6 +68,20 @@ namespace CentroDeTurnos
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+
+            app.UseSession();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" });
+
+                // Uncomment the following line to add a route for porting Web API 2 controllers.
+                // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
+            });
 
             app.UseMvc(routes =>
             {

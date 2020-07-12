@@ -9834,7 +9834,7 @@ a.navbar-brand span.fa {
   font-weight: 700;
   font-size: 65px;
   line-height: 80px;
-  color: #ffffff; }
+  color: crimson; }
 
 .w3l-main-banner .banner-info p {
   font-size: 20px;
@@ -11237,5 +11237,3 @@ span.sicon {
 @media (max-width: 768px) {
   .w3l-contacts-12 textarea {
     height: 150px; } }
-
-/*# sourceMappingURL=style-starter.css.map */
