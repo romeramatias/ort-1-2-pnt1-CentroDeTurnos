@@ -11,6 +11,7 @@ namespace Consultorio.Context
     {
         public DbSet<Paciente> pacientes { get; set; }
         public DbSet<Turno> turnos { get; set; }
+        public DbSet<Admin> admins { get; set; }
 
         public ConsultorioContext(DbContextOptions<ConsultorioContext> options) : base(options)
         {

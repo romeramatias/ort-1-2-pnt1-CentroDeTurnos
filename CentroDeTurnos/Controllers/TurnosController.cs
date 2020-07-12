@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CentroDeTurnos.Models;
 using Consultorio.Context;
 using System.Collections;
+using Microsoft.AspNetCore.Http;
 
 namespace CentroDeTurnos.Controllers
 {
@@ -30,6 +31,14 @@ namespace CentroDeTurnos.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string stringBusqueda)
         {
+
+            var adminLog = HttpContext.Session.GetString("admin");
+
+            if (adminLog == null || adminLog == "")
+            {
+                return RedirectToAction("Login", "Admins");
+            }
+
             ViewData["Obtenerpacientes"] = stringBusqueda;
 
             var varPacientes = from p in _context.turnos.Include(c => c.paciente )select p;
