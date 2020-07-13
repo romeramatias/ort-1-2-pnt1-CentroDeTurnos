@@ -34,14 +34,14 @@ namespace CentroDeTurnos.Controllers
 
             var adminLog = HttpContext.Session.GetString("admin");
 
-            if (adminLog == null || adminLog == "")
+            if (String.IsNullOrEmpty(adminLog))
             {
                 return RedirectToAction("Login", "Admins");
             }
 
             ViewData["Obtenerpacientes"] = stringBusqueda;
 
-            var varPacientes = from p in _context.turnos.Include(c => c.paciente )select p;
+            var varPacientes = from p in _context.turnos.Include(c => c.paciente) select p;
 
             if (!String.IsNullOrEmpty(stringBusqueda))
             {
@@ -61,6 +61,13 @@ namespace CentroDeTurnos.Controllers
         [HttpGet]
         public async Task<IActionResult> IndexUrgencia(string stringBusqueda)
         {
+            var adminLog = HttpContext.Session.GetString("admin");
+
+            if (String.IsNullOrEmpty(adminLog))
+            {
+                return RedirectToAction("Login", "Admins");
+            }
+
             ViewData["Obtenerpacientes"] = stringBusqueda;
 
             var varPacientes = from p in _context.turnos.Include(c => c.paciente) select p;
@@ -93,10 +100,22 @@ namespace CentroDeTurnos.Controllers
             return View(turno);
         }
 
-        // GET: Turnoes/Create
         public IActionResult Create()
         {
-            ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido");
+
+            ViewData["PacienteID2"] =
+                new SelectList((from s in _context.pacientes
+                                select new
+                                {
+                                    ID = s.ID,
+                                    FullName = s.Apellido + " " + s.Nombre
+                                }),
+                    "ID",
+                    "FullName");
+
+
+            //ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido");
+
             return View();
         }
 
@@ -113,7 +132,19 @@ namespace CentroDeTurnos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido", turno.PacienteID);
+
+            ViewData["PacienteID2"] =
+            new SelectList((from s in _context.pacientes
+                            select new
+                            {
+                                ID = s.ID,
+                                FullName = s.Apellido + " " + s.Nombre
+                            }),
+                "ID",
+                "FullName",
+                turno.PacienteID);
+
+            //ViewData["PacienteID"] = new SelectList(_context.pacientes, "ID", "Apellido", turno.PacienteID);
             return View(turno);
         }
 

@@ -34,7 +34,7 @@ namespace CentroDeTurnos.Controllers
         {
             var adminLog = HttpContext.Session.GetString("admin");
 
-            if (adminLog == null || adminLog == "")
+            if (String.IsNullOrEmpty(adminLog))
             {
                 return RedirectToAction("Login", "Admins");
             }

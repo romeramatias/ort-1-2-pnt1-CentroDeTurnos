@@ -47,12 +47,18 @@
                                 if (!String.IsNullOrEmpty(@HttpContextAccessor.HttpContext.Session.GetString("admin")))
                                 {
                                     <li class="nav-item mr-lg-4">
-                                        <a class="nav-link pl-0 pr-0" asp-area="" asp-controller="Admins" asp-action="Logout">Cerrar sesion</a>
+                                        <a class="nav-link pl-0 pr-0" asp-area="" asp-controller="Admins" asp-action="Logout">Cerrar sesión</a>
                                     </li>
-                                    }
-
                                 }
-                            </ul>
+                                else
+                                {
+                                    <li class="nav-item mr-lg-4">
+                                        <a class="nav-link pl-0 pr-0" asp-area="" asp-controller="Admins" asp-action="Login">Iniciar sesión</a>
+                                    </li>
+                                }
+
+                            }
+                        </ul>
                     </div>
                 </nav>
             </div>
