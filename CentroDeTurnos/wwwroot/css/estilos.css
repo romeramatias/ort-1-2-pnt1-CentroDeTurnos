@@ -9770,7 +9770,7 @@ a.navbar-brand span.fa {
   align-items: center;
   width: 100%;
   z-index: 10;
-  background: var(--secondary); }
+  background: black; }
 
 .navbar-dark .navbar-nav .show > .nav-link,
 .navbar-dark .navbar-nav .active > .nav-link,

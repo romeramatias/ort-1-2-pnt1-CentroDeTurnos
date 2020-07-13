@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Consultorio.Context;
 using Newtonsoft.Json;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace CentroDeTurnos
 {
@@ -38,6 +39,7 @@ namespace CentroDeTurnos
             options.UseSqlServer(Configuration["ConnectionString:TurnosDBConnection"
             ]));
 
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();
             services.AddSession();
        

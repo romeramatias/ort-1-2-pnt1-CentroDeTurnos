@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+<!DOCTYPE html>
 <html style=" min-height: 100%; position: relative;">
 <head style='background: #a6a6a6'>
     <meta charset="utf-8" />
@@ -39,6 +43,21 @@
                             <li class="nav-item mr-lg-4">
                                 <a class="nav-link pl-0 pr-0" asp-area="" asp-controller="Pacientes" asp-action="Index">Pacientes</a>
                             </li>
+                            @{
+                                if (!String.IsNullOrEmpty(@HttpContextAccessor.HttpContext.Session.GetString("admin")))
+                                {
+                                    <li class="nav-item mr-lg-4">
+                                        <a class="nav-link pl-0 pr-0" asp-area="" asp-controller="Admins" asp-action="Logout">Cerrar sesión</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item mr-lg-4">
+                                        <a class="nav-link pl-0 pr-0" asp-area="" asp-controller="Admins" asp-action="Login">Iniciar sesión</a>
+                                    </li>
+                                }
+
+                            }
                         </ul>
                     </div>
                 </nav>
