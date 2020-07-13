@@ -169,7 +169,7 @@ namespace CentroDeTurnos.Controllers
                 var adminsFromDB = await _context.admins.FirstOrDefaultAsync(adm => adm.Mail == Mail && adm.Pass == Pass);
                 if (adminsFromDB == null)
                 {
-                    ViewBag.Error = "Datos incorrectos.";
+                    ViewBag.Error = "Datos erroneos, intente nuevamente.";
                     return View();
                 }
                 adminContext = adminsFromDB;
