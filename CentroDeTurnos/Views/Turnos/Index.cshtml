@@ -7,27 +7,25 @@
 <div class="container">
     <main role="main" class="pb-3">
         <!--MATIAS-->
-        <h2 style="font-weight: 700; font-size: 40px; line-height: 80px; color: black;">Lista de Turnos</h2>
-
-        <div id="container" style=" width: 100%; text-align: left;">
-
-            <div id="left" style=" float: left; width: 300px; padding-bottom: 10px">
+        <h2 class="h2-index">Lista de Turnos</h2>
+        <div id="container" class="container-index">
+            <div id="left" class="left-index">
                 <form method="get" asp-action="Index">
-                    <p style="flex-direction:row">
-                        Buscar turno: <input type="search" class="form-control mr-sm-2" style="width:250px;margin-bottom:15px" placeholder="Ingrese Apellido" value="@ViewData["Obtenerpacientes"]" name="stringBusqueda">
+                    <p class="p-index">
+                        Buscar turno: <input type="search" class="form-control mr-sm-2 input-index" placeholder="Ingrese Apellido" value="@ViewData["Obtenerpacientes"]" name="stringBusqueda">
                         <input class="btn btn-primary" type="submit" value="Buscar" />
                         <a asp-action="Index">Ver todos los Turnos</a>
                     </p>
                 </form>
             </div>
 
-            <div id="right" style=" float: right; width: 200px; margin-top: 30px;">
+            <div class="right-index">
                 <p>
                     <a asp-action="Create" class="btn btn-primary">Agendar un nuevo Turno a Paciente</a>
                 </p>
             </div>
 
-            <div id="right" style=" float: right; width: 200px; margin-top: 30px;">
+            <div class="right-index">
                 <a asp-area="" asp-controller="Turnos" asp-action="IndexUrgencia" class="btn btn-primary-urgencia" style="background-color: crimson; color: white; padding-bottom: 18px; padding-top: 18px; text-align: justify;">Ver turnos de Urgencia</a>
             </div>
 
@@ -35,10 +33,7 @@
 
             <table class="table">
                 <thead>
-                    <tr style="         color: #fff;
-                                    line-height: 1.4;
-                                    background-color: #333333;
-                                    font-family: 'Nunito', sans-serif;">
+                    <tr class="tr-index">
                         <th>
                             @Html.DisplayNameFor(model => model.FechaTurno)
                         </th>
@@ -57,10 +52,7 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr style="color: black;
-                       line-height: 1.4;
-                       background-color: #e6e6e6;
-                       font-family: 'Nunito', sans-serif;">
+                        <tr class="tr-index2">
                             <td>
                                 @Html.DisplayFor(modelItem => item.FechaTurno) @Html.DisplayFor(modelItem => item.FechaTurno.TimeOfDay)
                             </td>

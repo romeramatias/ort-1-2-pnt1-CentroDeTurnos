@@ -12,15 +12,15 @@
 
 <div class="limiter">
     <div class="container-login100">
-        <div class="wrap-login100" style="margin-top:-100px;">
+        <div class="wrap-login100 login-wrap">
             <form asp-action="Login" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <span class="login100-form-title">
                     Iniciar sesión
                 </span>
 
-                <div class="text-center p-t-13 p-b-23" style=" margin-top: -50px; text-align: center;">
-                    <span class="txt1" style="font-family:Nunito" ;>
+                <div class="text-center p-t-13 p-b-23 login-text">
+                    <span class="txt1 login-font">
                         Para acceder a los menús de turnos y pacientes necesita una cuenta de administrador.
                     </span>
                 </div>
@@ -30,16 +30,16 @@
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Please enter password" style="margin-bottom:16px;">
+                <div class="wrap-input100 validate-input login-pass" data-validate="Please enter password">
                     <input asp-for="Pass" name="Pass" type="password" class="input100" placeholder="Contraseña">
                     <span class="focus-input100"></span>
                 </div>
                 
-                <div style="text-align: center;margin-bottom: 16px; font-family: Nunito;-webkit-text-stroke-width: medium;">
+                <div class="login-error">
                     <span class="text-danger">@ViewBag.Error</span>
                 </div>
                 
-                <div class="container-login100-form-btn" style="margin-bottom:50px;">
+                <div class="container-login100-form-btn login-ingresar">
                     <button class="login100-form-btn">
                         Ingresar
                     </button>

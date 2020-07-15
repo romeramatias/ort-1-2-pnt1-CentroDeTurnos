@@ -18,6 +18,132 @@ Author URL: http://w3layouts.com
         margin-bottom: 0;
         list-style: none;
     }
+
+.h2-index {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 80px;
+    color: black;
+}
+
+.container-index {
+    width: 100%;
+    text-align: left;
+}
+
+.left-index {
+    float: left;
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+.p-index {
+    flex-direction: row;
+}
+
+.input-index {
+    width: 250px;
+    margin-bottom: 15px;
+}
+
+.tr-index {
+    color: #fff;
+    line-height: 1.4;
+    background-color: #333333;
+    font-family: 'Nunito', sans-serif;
+}
+
+.tr-index2 {
+    color: black;
+    line-height: 1.4;
+    background-color: #e6e6e6;
+    font-family: 'Nunito', sans-serif;
+}
+
+.td-index-urgencia {
+    color: crimson;
+}
+
+.boton-index-urg {
+    padding-bottom: 18px;
+    padding-top: 18px;
+    text-align: justify
+}
+
+.right-index {
+    float: right;
+    width: 200px;
+    margin-top: 30px;
+}
+
+.login-wrap {
+    margin-top: -100px;
+}
+
+.login-text {
+    margin-top: -50px;
+    text-align: center;
+}
+
+.login-font {
+    font-family: Nunito
+}
+
+.login-pass {
+    margin-bottom: 16px;
+}
+
+.login-error {
+    text-align: center;
+    margin-bottom: 16px;
+    font-family: Nunito;
+    font-weight: bold
+}
+
+.login-ingresar {
+    margin-bottom: 50px;
+}
+
+.home-banner-section {
+    background: black;
+}
+
+.home-banner-view {
+    height: 100vh;
+}
+
+.layout-html {
+    min-height: 100%;
+    position: relative;
+}
+
+.layout-head {
+    background: #a6a6a6
+}
+
+.layout-body {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.layout-footer {
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+}
+
+.layout-footer-url {
+    height: 100px;
+    margin-top: -16px;
+}
+
+.layout-div-apellidos {
+    padding-top: 5px;
+}
+
+/*PLANTILLA*/
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
