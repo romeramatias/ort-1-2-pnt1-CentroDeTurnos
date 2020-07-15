@@ -9,6 +9,52 @@ Author URL: http://w3layouts.com
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+
+
+.bienvenida-text {
+    font-weight: 700;
+    font-size: 110px;
+    line-height: 80px;
+    color: #00d679;
+}
+
+.bienvenida-main-banner .bienvenida-banner-view {
+   /* background: url('../images/drluis.png');*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    /*DESCOMENTAR min-height: 1000px;*/
+    min-height: 700px;
+    z-index: 0;
+    display: grid;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+.bienvenida-main-banner {
+    position: relative;
+}
+
+.bienvenida-main-banner h3.banner-text {
+    font-weight: 700;
+    font-size: 65px;
+    line-height: 80px;
+    color: white;
+}
+
+.bienvenida-main-banner .banner-info p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 32px;
+    max-width: 750px;
+    margin-top: -150px;
+}
+
 .apellidos {
     padding-top: 15px;
 }
