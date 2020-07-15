@@ -6,29 +6,29 @@
     ViewData["Title"] = "Bienvenida";
 }
 
-<section class="bienvenida-main-banner home-banner-section">
-    <div class="bienvenida-banner-view home-banner-view">
-        <div class="banner-info container" style="margin-top:-150px;">
-            <h3 class="bienvenida-text">
-                Bienvenido
-            </h3>
-            <p class="mt-3 mb-5">
-                En unos segundos seras redirigido a la sección de turnos.
-            </p><br>
+    <section class="bienvenida-main-banner home-banner-section">
+        <div class="bienvenida-banner-view home-banner-view">
+            <div class="banner-info container" style="margin-top:-150px;">
+                <h3 class="bienvenida-text">
+                    Bienvenido
+                </h3>
+                <p class="mt-3 mb-5">
+                    En unos segundos seras redirigido a la sección de turnos.
+                </p><br>
 
+            </div>
         </div>
-    </div>
 
-    <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div>
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
 
-    
+       
     <script>
     var url = '@Url.Action("../Turnos/Index")'
     window.setTimeout(function () {
     window.location.href = "../Turnos/Index";
-    }, 5000);
+    }, 4000);
     </script>
-       
-</section>
+      
+    </section>
