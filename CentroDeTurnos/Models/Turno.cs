@@ -19,7 +19,6 @@ namespace CentroDeTurnos.Models
         [Display(Name = "Tipo de consulta")]
         public TipoTurno TipoTurno { get; set; }
 
-
         [Required]
         [Display(Name = "Fecha de turno")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]

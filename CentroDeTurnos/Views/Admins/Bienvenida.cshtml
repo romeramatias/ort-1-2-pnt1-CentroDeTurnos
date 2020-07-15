@@ -1,6 +1,4 @@
 ﻿@model CentroDeTurnos.Models.Admin
-@using Microsoft.AspNetCore.Http
-@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
     ViewData["Title"] = "Bienvenida";
@@ -28,7 +26,7 @@
     var url = '@Url.Action("../Turnos/Index")'
     window.setTimeout(function () {
     window.location.href = "../Turnos/Index";
-    }, 4000);
+    }, 6000);
     </script>
       
     </section>
