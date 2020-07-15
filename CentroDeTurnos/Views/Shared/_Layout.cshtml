@@ -3,8 +3,8 @@
 
 
 <!DOCTYPE html>
-<html style=" min-height: 100%; position: relative;">
-<head style='background: #a6a6a6'>
+<html class="layout-html">
+<head class="layout-head">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Gestion de Turnos"]Gestion de turnos</title>
@@ -22,7 +22,7 @@
     </environment>
 </head>
 
-<body style="margin: 0; margin-bottom: 40px;">
+<body class="layout-body">
     <header>
         <div class="w3l-header" id="home">
             <div class="container">
@@ -69,21 +69,16 @@
 
     @RenderBody()
 
-    <footer style="
-            bottom: 0;
-            width: 100%;
-            height: 40px;
-            position:absolute;
-            ">
+    <footer class="layout-footer">
         <section class="w3l-footers-1">
             <div class="footer py-3">
                 <div class="container">
                     <div class="footer-content">
                         <div class="row">
                             <div class="col-lg-8 footer-left">
-                                <a href="https://www.ort.edu.ar/" target="_blank"><img src="~/images/ortimage.jpeg" style="height:100px; margin-top:-16px" /></a>
+                                <a href="https://www.ort.edu.ar/" target="_blank"><img src="~/images/ortimage.jpeg" class="layout-footer-url" /></a>
                             </div>
-                            <div class="col-lg-3 footer-right text-lg-right text-center mt-lg-0 mt-3" style="padding-top:5px">
+                            <div class="col-lg-3 footer-right text-lg-right text-center mt-lg-0 mt-3 layout-div-apellidos">
                                 <div class="apellidos">
                                     <ul class="ml-auto social m-0 p-0">
                                         <li><a href="https://github.com/romeramatias" target="_blank"> Romera</a></li>
@@ -99,7 +94,6 @@
             </div>
         </section>
     </footer>
-
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

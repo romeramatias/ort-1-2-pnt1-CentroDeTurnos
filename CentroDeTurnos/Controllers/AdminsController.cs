@@ -154,9 +154,14 @@ namespace CentroDeTurnos.Controllers
             return _context.admins.Any(e => e.ID == id);
         }
 
-        //ADMIN, LOGINS
+        //ADMIN, LOGINS, BIENVENIDA
 
         public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Bienvenida()
         {
             return View();
         }
@@ -174,7 +179,7 @@ namespace CentroDeTurnos.Controllers
                 }
                 adminContext = adminsFromDB;
                 HttpContext.Session.SetString("admin", adminsFromDB.Mail);
-                return RedirectToAction("Index", "Turnos");
+                return RedirectToAction("Bienvenida", "Admins");
             }
             return View(null);
         }
