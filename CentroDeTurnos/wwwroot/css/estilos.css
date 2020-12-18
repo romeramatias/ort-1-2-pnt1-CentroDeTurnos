@@ -1,17 +1,4 @@
-﻿
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
---*/@charset "UTF-8";
-/*!
- * Bootstrap v4.4.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-
-
-
+﻿/*
 .bienvenida-text {
     font-weight: 700;
     font-size: 110px;
@@ -24,7 +11,7 @@ Author URL: http://w3layouts.com
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom left;
-    /*DESCOMENTAR min-height: 1000px;*/
+    DESCOMENTAR min-height: 1000px;
     min-height: 700px;
     z-index: 0;
     display: grid;
@@ -187,8 +174,6 @@ Author URL: http://w3layouts.com
 .layout-div-apellidos {
     padding-top: 5px;
 }
-
-/*PLANTILLA*/
 
 :root {
   --blue: #007bff;
@@ -7452,12 +7437,6 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-/*!
- *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-/* FONT PATH
- * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
   src: url("../fonts/fontawesome-webfont.eot?v=4.7.0");
@@ -7473,7 +7452,7 @@ a.text-dark:hover, a.text-dark:focus {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* makes the font 33% larger relative to the icon container */
+/* makes the font 33% larger relative to the icon container 
 .fa-lg {
   font-size: 1.33333em;
   line-height: 0.75em;
@@ -7528,7 +7507,6 @@ a.text-dark:hover, a.text-dark:focus {
 .fa.fa-pull-right {
   margin-left: .3em; }
 
-/* Deprecated as of 4.4.0 */
 .pull-right {
   float: right; }
 
@@ -7612,8 +7590,6 @@ a.text-dark:hover, a.text-dark:focus {
 .fa-inverse {
   color: #fff; }
 
-/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-   readers do not read off random characters that represent icons */
 .fa-glass:before {
   content: ""; }
 
@@ -10021,7 +9997,7 @@ a.navbar-brand span.fa {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: bottom;
-        /*DESCOMENTAR min-height: 1000px;*/
+        DESCOMENTAR min-height: 1000px;
         min-height: 700px;
         z-index: 0;
         display: grid;
@@ -10141,10 +10117,8 @@ a.navbar-brand span.fa {
   to {
     transform: translateY(-2000px); } }
 
-/*--/content with photo5--*/
 .w3l-content-photo-5 {
-  /*-- responsive design --*/
-  /*-- //responsive design --*/ }
+ }
   .w3l-content-photo-5 .content-left {
     align-self: center; }
   .w3l-content-photo-5 .content-photo img {
@@ -10179,12 +10153,7 @@ a.navbar-brand span.fa {
       font-size: 24px;
       line-height: 30px; } }
 
-/*--//content with photo5--*/
-/* gallery-7 */
-.w3l-gallery-7 {
-  /*******************KEYFRAMES*******************/
-  /******************MEDIA QUERYS******************/
-  /* responsive code */ }
+
   .w3l-gallery-7 .gallery-7_sur {
     background-color: var(--bg-light); }
   .w3l-gallery-7 .galleryContainer {
@@ -10260,7 +10229,7 @@ a.navbar-brand span.fa {
     overflow-y: hidden;
     height: 5%;
     margin-top: 10px;
-    /*border-left: 6px solid black;*/
+
     scroll-snap-type: mandatory;
     -ms-scroll-snap-type: x mandatory;
     scroll-snap-type: x mandatory;
@@ -10353,7 +10322,6 @@ a.navbar-brand span.fa {
       min-height: 60px;
       max-height: 60px; } }
 
-/* //gallery-7 */
 .w3l-blog h3 {
   font-size: 35px;
   line-height: 40px;
@@ -10412,7 +10380,6 @@ a.navbar-brand span.fa {
   .w3l-blog h5 {
     font-size: 21px; } }
 
-/*-- quote --*/
 .w3l-quote-main .quote {
   background: url(../images/g5.jpg) 0px 0px;
   background-size: cover;
@@ -10477,8 +10444,6 @@ a.navbar-brand span.fa {
   .w3l-quote-main .tablet-grid {
     grid-gap: 20px; } }
 
-/*-- quote --*/
-/*-- mid --*/
 .w3l-grid-quote {
   text-align: center;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.67)), url(../images/g6.jpg);
@@ -10505,10 +10470,8 @@ section.w3l-grid-quote h3 {
   section.w3l-grid-quote h3 {
     font-size: 1.8em; } }
 
-/*-- mid --*/
 .w3l-footers-1 {
-  /*-- responsive design --*/
-  /*-- //responsive design --*/ }
+ }
   .w3l-footers-1 .d-grid {
     display: grid; }
   .w3l-footers-1 .grid-columns-2 {
@@ -10669,7 +10632,6 @@ section.w3l-grid-quote h3 {
   transform: scale(1.1);
   transition: 0.3s ease-in-out; }
 
-/*-- skills --*/
 .bar-grids h4 {
   font-size: 30px;
   line-height: 35px;
@@ -10760,8 +10722,7 @@ section.w3l-grid-quote h3 {
     padding: 0 5px;
     max-width: 30.33333% !important; } }
 
-/*-- //skills --*/
-/*-- stats --*/
+
 .w3l-stats {
   background: url(../images/g2.jpg) no-repeat center;
   background-size: cover;
@@ -10832,8 +10793,7 @@ section.w3l-grid-quote h3 {
   .stats_info span.fa {
     font-size: 2em; } }
 
-/*--//stats--*/
-/*-- services--*/
+
 .w3l-services {
   background: var(--bg-light); }
 
@@ -10868,8 +10828,6 @@ span.sicon {
 .wthree-s1:hover {
   background: #000; }
 
-/*-- //services --*/
-/*-- Principles --*/
 .principles {
   padding: 100px 0 300px;
   position: relative;
@@ -10987,8 +10945,7 @@ span.sicon {
   font-weight: 700;
   color: #1dc8d9; }
 
-/*-- //Principles --*/
-/*--services --*/
+
 .w3-services-left-grid h3 {
   color: var(--heading); }
 
@@ -11061,8 +11018,7 @@ span.sicon {
     line-height: 27px;
     margin-bottom: 10px; } }
 
-/*-- //services --*/
-/*-- w3l-services-block --*/
+
 .w3l-services-block {
   background: #f8f9fa; }
 
@@ -11194,7 +11150,7 @@ span.sicon {
   .service_grid_btm_left2 h5 {
     font-size: 22px; } }
 
-/*-- //w3l-services-block --*/
+
 .w3l-services-block-3 .feature-grid {
   margin-top: 30px; }
 
@@ -11409,3 +11365,4 @@ span.sicon {
 @media (max-width: 768px) {
   .w3l-contacts-12 textarea {
     height: 150px; } }
+ */
